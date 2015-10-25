@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<ul>
+		<li><%= link_to 'posts', posts_path %></li>
+		<li><%= link_to 'users', users_path %></li>
+		<% if user_signed_in? %>
+			<%= link_to 'Sign Out', sign_out_path, method: :delete %>
+		<% else %>
+			<%= link_to 'Sign In', sign_in_path %>
+		<% end %>
+	</ul>
+	<%= yield %>
+
+</body>
+</html>
